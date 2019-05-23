@@ -46,7 +46,7 @@ namespace SimpleCalc
             calculator.Number2 = secondValue;
 
             //Act
-            var actualResult = Math.Round(calculator.Subtract(), 5);
+            var actualResult = Math.Round(calculator.Subtract(), 9);
 
             //Assert
             Assert.AreEqual(actualResult, result);
@@ -63,7 +63,7 @@ namespace SimpleCalc
             calculator.Number2 = secondValue;
 
             //Act
-            var actualResult = Math.Round(calculator.Multiply(),5);
+            var actualResult = Math.Round(calculator.Multiply(),9);
 
             //Assert
             Assert.AreEqual(actualResult, result);
@@ -80,7 +80,7 @@ namespace SimpleCalc
             calculator.Number2 = secondValue;
 
             //Act
-            var actualResult = Math.Round(calculator.Divide(), 5);
+            var actualResult = Math.Round(calculator.Divide(), 9);
 
             //Assert
             Assert.AreEqual(actualResult, result);
@@ -98,13 +98,8 @@ namespace SimpleCalc
             calculator.Number2 = secondValue;
 
             //Act
-            void Check()
-            {
-                var actualResult = calculator.Divide();
-            }
-
             //Assert
-            Assert.Throws(typeof(DivideByZeroException), Check);
+            Assert.Throws(typeof(DivideByZeroException),()=> calculator.Divide());
 
         }
     }
